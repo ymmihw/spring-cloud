@@ -21,5 +21,6 @@
   <module>bootstrapping-config</module>
   <module>bootstrapping-discovery</module>
   <module>bootstrapping-gateway</module>
+  <module>bootstrapping-svc-book</module>
  </modules>
 </project>
