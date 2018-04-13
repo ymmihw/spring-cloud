@@ -1,0 +1,8 @@
+- To run the project:
+  - copy the appliction-config folder to c:\Users\{username}\ on Windows or /Users/{username}/ on *nix. Then open a git bash terminal in application-config and run:
+    - git init
+    - git add .
+    - git commit -m "First commit"
+  - start the config server
+  - start the discover server
+  - start all the other servers in any order (gateway, svc-book, svc-rating, zipkin)
