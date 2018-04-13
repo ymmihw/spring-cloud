@@ -19,6 +19,6 @@
  </dependencies>
  <modules>
   <module>bootstrapping-config</module>
-  <module>spring-cloud-discovery</module>
+  <module>bootstrapping-discovery</module>
  </modules>
 </project>
