@@ -17,4 +17,8 @@
  </properties>
  <dependencies>
  </dependencies>
+ <modules>
+  <module>configuration-server</module>
+  <module>configuration-client</module>
+ </modules>
 </project>
