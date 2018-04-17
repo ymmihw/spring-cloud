@@ -30,6 +30,7 @@
  <modules>
   <module>spring-cloud-bootstrapping</module>
   <module>spring-cloud-configuration</module>
+  <module>spring-cloud-security</module>
  </modules>
  <dependencyManagement>
   <dependencies>
