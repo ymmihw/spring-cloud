@@ -16,7 +16,7 @@ public class SessionSavingZuulPreFilter extends ZuulFilter {
   private Logger log = LoggerFactory.getLogger(this.getClass());
 
   @Autowired
-  private SessionRepository<Session> repository;
+  private SessionRepository<?> repository;
 
   @Override
   public boolean shouldFilter() {
