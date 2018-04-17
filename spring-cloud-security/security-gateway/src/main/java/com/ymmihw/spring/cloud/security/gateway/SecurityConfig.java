@@ -19,9 +19,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
   @Override
   protected void configure(HttpSecurity http) throws Exception {
-    http.formLogin().defaultSuccessUrl("/home/index.html", true).and().authorizeRequests()
-        .antMatchers("/book-service/**", "/rating-service/**", "/login*", "/").permitAll()
-        .antMatchers("/eureka/**").hasRole("ADMIN").anyRequest().authenticated().and().logout()
-        .and().csrf().disable();
+    http.authorizeRequests().antMatchers("/book-service/books").permitAll()
+        .antMatchers("/eureka/**").hasRole("ADMIN").anyRequest().authenticated().and().formLogin()
+        .and().logout().permitAll().logoutSuccessUrl("/book-service/books").permitAll().and().csrf()
+        .disable();
   }
 }
