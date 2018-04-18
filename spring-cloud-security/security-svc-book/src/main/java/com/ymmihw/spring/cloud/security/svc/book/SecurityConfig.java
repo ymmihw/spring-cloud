@@ -13,9 +13,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
   @Autowired
   public void configureGlobal1(AuthenticationManagerBuilder auth) throws Exception {
-    // try in memory auth with no users to support the case that this will allow for users that are
-    // logged in to go anywhere
-    auth.inMemoryAuthentication();
+    auth.inMemoryAuthentication().withUser("user").password("{noop}password").roles("USER").and()
+        .withUser("admin").password("{noop}admin").roles("ADMIN");
   }
 
   @Override
