@@ -13,7 +13,6 @@ import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
-@Configuration
 @EnableWebSecurity
 @Order(1)
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
@@ -29,10 +28,13 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
   @Override
   protected void configure(HttpSecurity http) throws Exception {
+    // @formatter:off
     http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.ALWAYS).and()
-        .requestMatchers().antMatchers("/eureka/**").and().authorizeRequests()
-        .antMatchers("/eureka/**").hasRole("SYSTEM").anyRequest().denyAll().and().httpBasic().and()
+        .requestMatchers().antMatchers("/eureka/**").and()
+        .authorizeRequests().antMatchers("/eureka/**").hasRole("SYSTEM").anyRequest().denyAll().and()
+        .httpBasic().and()
         .csrf().disable();
+    // @formatter:on
   }
 
   @Configuration
@@ -40,10 +42,15 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-      http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.NEVER).and().httpBasic()
-          .disable().authorizeRequests().antMatchers(HttpMethod.GET, "/").hasRole("ADMIN")
-          .antMatchers("/info", "/health").authenticated().anyRequest().denyAll().and().csrf()
-          .disable();
+      // @formatter:off
+      http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.NEVER).and()
+          .httpBasic().disable().authorizeRequests()
+              .antMatchers(HttpMethod.GET, "/").hasRole("ADMIN")
+              .antMatchers("/info", "/health").authenticated()
+              .anyRequest().denyAll()
+              .and()
+          .csrf().disable();
+      // @formatter:on
     }
   }
 }
