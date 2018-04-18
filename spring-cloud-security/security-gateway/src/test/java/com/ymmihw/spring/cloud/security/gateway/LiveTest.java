@@ -9,6 +9,7 @@ import io.restassured.RestAssured;
 import io.restassured.authentication.FormAuthConfig;
 import io.restassured.config.RedirectConfig;
 import io.restassured.response.Response;
+import io.restassured.specification.RequestSpecification;
 
 public class LiveTest {
 
@@ -22,7 +23,8 @@ public class LiveTest {
 
   @Test
   public void whenGetAllBooks_thenSuccess() {
-    final Response response = RestAssured.get(ROOT_URI + "/book-service/books");
+    Response response = RestAssured.given().auth().form("user", "password", formConfig).get(ROOT_URI + "/book-service/books");
+//    final Response response = RestAssured.get(ROOT_URI + "/book-service/books");
     Assert.assertEquals(HttpStatus.OK.value(), response.getStatusCode());
     Assert.assertNotNull(response.getBody());
   }

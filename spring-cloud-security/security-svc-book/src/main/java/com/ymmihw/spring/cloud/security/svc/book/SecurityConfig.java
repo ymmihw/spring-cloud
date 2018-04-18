@@ -12,9 +12,8 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
   @Autowired
-  public void configureGlobal1(AuthenticationManagerBuilder auth) throws Exception {
-    auth.inMemoryAuthentication().withUser("user").password("{noop}password").roles("USER").and()
-        .withUser("admin").password("{noop}admin").roles("ADMIN");
+  public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
+    auth.inMemoryAuthentication();
   }
 
   @Override

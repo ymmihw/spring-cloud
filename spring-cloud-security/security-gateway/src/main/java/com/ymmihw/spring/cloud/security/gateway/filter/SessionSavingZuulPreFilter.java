@@ -16,7 +16,7 @@ public class SessionSavingZuulPreFilter extends ZuulFilter {
   private Logger log = LoggerFactory.getLogger(this.getClass());
 
   @Autowired
-  private SessionRepository<?> repository;
+  private SessionRepository repository;
 
   @Override
   public boolean shouldFilter() {
@@ -27,10 +27,9 @@ public class SessionSavingZuulPreFilter extends ZuulFilter {
   public Object run() {
     RequestContext context = RequestContext.getCurrentContext();
     HttpSession httpSession = context.getRequest().getSession();
-    Session session = repository.findById(httpSession.getId());
-
+    Session session = repository.getSession(httpSession.getId());
     context.addZuulRequestHeader("Cookie", "SESSION=" + httpSession.getId());
-    log.info("ZuulPreFilter session proxy: {}", session);
+    log.info("ZuulPreFilter session proxy: {}", session.getId());
     return null;
   }
 

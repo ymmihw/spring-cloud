@@ -1,7 +1,9 @@
 package com.ymmihw.spring.cloud.security.svc.book;
 
+import java.security.Principal;
 import java.util.Arrays;
 import java.util.List;
+import javax.servlet.http.HttpServletRequest;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
@@ -24,7 +26,9 @@ public class BookServiceApplication {
           new Book(2L, "Baeldung goes to the park", "Slavisa"));
 
   @GetMapping("")
-  public List<Book> findAllBooks() {
+  public List<Book> findAllBooks(HttpServletRequest request) {
+    Principal principal = request.getUserPrincipal();
+    System.out.println(request.getSession().getId());
     return bookList;
   }
 
