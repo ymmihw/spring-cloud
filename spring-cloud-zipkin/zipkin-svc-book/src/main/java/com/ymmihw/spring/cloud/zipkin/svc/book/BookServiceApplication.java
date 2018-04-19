@@ -64,7 +64,7 @@ public class BookServiceApplication {
         InstanceInfo instance = eurekaClient.getNextServerFromEureka("zipkin", false);
         if (!(baseUrl != null && instance.getHomePageUrl().equals(baseUrl))) {
           baseUrl = instance.getHomePageUrl();
-          delegate = new HttpZipkinSpanReporter(new RestTemplate(), baseUrl, 0, spanMetricReporter);
+          delegate = new HttpZipkinSpanReporter(new RestTemplate(), baseUrl, 1, spanMetricReporter);
         }
         if (!span.name.matches(skipPattern))
           delegate.report(span);
