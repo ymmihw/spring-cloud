@@ -6,6 +6,7 @@
   <groupId>com.ymmihw.spring.cloud</groupId>
   <artifactId>spring-boot-1.5</artifactId>
   <version>0.0.1-SNAPSHOT</version>
+  <relativePath>../spring-boot-1.5</relativePath>
  </parent>
  <artifactId>spring-cloud-zipkin</artifactId>
  <packaging>pom</packaging>

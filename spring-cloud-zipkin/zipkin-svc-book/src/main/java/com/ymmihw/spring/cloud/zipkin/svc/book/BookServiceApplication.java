@@ -9,13 +9,13 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 import org.springframework.cloud.sleuth.metric.SpanMetricReporter;
 import org.springframework.cloud.sleuth.zipkin.HttpZipkinSpanReporter;
-import org.springframework.cloud.sleuth.zipkin.ZipkinProperties;
 import org.springframework.cloud.sleuth.zipkin.ZipkinSpanReporter;
 import org.springframework.context.annotation.Bean;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.client.RestTemplate;
 import com.netflix.appinfo.InstanceInfo;
 import com.netflix.discovery.EurekaClient;
 import zipkin.Span;
@@ -50,12 +50,8 @@ public class BookServiceApplication {
   @Autowired
   private SpanMetricReporter spanMetricReporter;
 
-  @Autowired
-  private ZipkinProperties zipkinProperties;
-
   @Value("${spring.sleuth.web.skipPattern}")
   private String skipPattern;
-
 
   @Bean
   public ZipkinSpanReporter makeZipkinSpanReporter() {
@@ -68,11 +64,10 @@ public class BookServiceApplication {
         InstanceInfo instance = eurekaClient.getNextServerFromEureka("zipkin", false);
         if (!(baseUrl != null && instance.getHomePageUrl().equals(baseUrl))) {
           baseUrl = instance.getHomePageUrl();
-          delegate = new HttpZipkinSpanReporter(baseUrl, zipkinProperties.getFlushInterval(),
-              zipkinProperties.getCompression().isEnabled(), spanMetricReporter);
-          if (!span.name.matches(skipPattern))
-            delegate.report(span);
+          delegate = new HttpZipkinSpanReporter(new RestTemplate(), baseUrl, 0, spanMetricReporter);
         }
+        if (!span.name.matches(skipPattern))
+          delegate.report(span);
       }
     };
   }
