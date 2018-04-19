@@ -2,7 +2,6 @@ package com.ymmihw.spring.cloud.security.gateway;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -11,7 +10,6 @@ import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 @EnableWebSecurity
-@Configuration
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
   @Bean
   public static PasswordEncoder passwordEncoder() {
@@ -26,9 +24,14 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
   @Override
   protected void configure(HttpSecurity http) throws Exception {
-    http.formLogin().defaultSuccessUrl("/home/index.html", true).and().authorizeRequests()
-        .antMatchers("/book-service/**", "/rating-service/**", "/login*", "/").permitAll()
-        .antMatchers("/eureka/**").hasRole("ADMIN").anyRequest().authenticated().and().logout()
-        .and().csrf().disable();
+    // @formatter:off
+    http.formLogin().defaultSuccessUrl("/home/index.html", true).and()
+        .authorizeRequests()
+            .antMatchers("/book-service/**", "/rating-service/**", "/login*", "/").permitAll()
+            .antMatchers("/eureka/**").hasRole("ADMIN")
+            .anyRequest().authenticated().and()
+        .logout().and()
+        .csrf().disable();
+    // @formatter:on
   }
 }
