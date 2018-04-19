@@ -31,6 +31,8 @@
   <module>spring-cloud-bootstrapping</module>
   <module>spring-cloud-configuration</module>
   <module>spring-cloud-security</module>
+  <module>spring-cloud-zipkin</module>
+  <module>spring-boot-1.5</module>
  </modules>
  <dependencyManagement>
   <dependencies>
