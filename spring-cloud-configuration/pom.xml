@@ -11,10 +11,9 @@
   <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
  </properties>
  <parent>
-  <groupId>com.ymmihw.spring.cloud</groupId>
-  <artifactId>spring-boot-1.5</artifactId>
+  <groupId>com.ymmihw</groupId>
+  <artifactId>spring-cloud</artifactId>
   <version>0.0.1-SNAPSHOT</version>
-  <relativePath>../spring-boot-1.5</relativePath>
  </parent>
  <dependencies>
   <dependency>
