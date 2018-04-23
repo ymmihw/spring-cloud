@@ -7,3 +7,9 @@
 - [Introduction to Spring Cloud Netflix – Eureka](http://www.baeldung.com/spring-cloud-netflix-eureka)
 - [Introduction to Spring Cloud Rest Client with Netflix Ribbon](http://www.baeldung.com/spring-cloud-rest-client-with-netflix-ribbon)
 - [Spring Cloud Sleuth in a Monolith Application](http://www.baeldung.com/spring-cloud-sleuth-single-application)
+
+
+
+Module | Article
+--|--
+spring-cloud-sleuth-introduction | [Spring Cloud Sleuth in a Monolith Application](http://www.baeldung.com/spring-cloud-sleuth-single-application)
