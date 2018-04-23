@@ -14,7 +14,6 @@ import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.http.ResponseEntity;
 import org.springframework.test.context.junit4.SpringRunner;
 
-@SuppressWarnings("unused")
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = ServerLocationApp.class,
     webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
