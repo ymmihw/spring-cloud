@@ -36,6 +36,7 @@
   <module>spring-cloud-netflix-eureka</module>
   <module>spring-cloud-zookeeper</module>
   <module>spring-cloud-ribbon-client</module>
+  <module>spring-cloud-sleuth-introduction</module>
  </modules>
  <dependencyManagement>
   <dependencies>
