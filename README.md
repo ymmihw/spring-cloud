@@ -3,6 +3,7 @@
 Module | Article
 --|--
 spring-cloud-bootstrapping | [Spring Cloud – Bootstrapping](http://www.baeldung.com/spring-cloud-bootstrapping)
+spring-cloud-gateway-pattern | [Spring Cloud Series – The Gateway Pattern](http://www.baeldung.com/spring-cloud-gateway-pattern)
 spring-cloud-configuration | [Quick Intro to Spring Cloud Configuration](http://www.baeldung.com/spring-cloud-configuration)
 spring-cloud-security | [Spring Cloud – Securing Services](http://www.baeldung.com/spring-cloud-securing-services)
 spring-cloud-zipkin | [Spring Cloud – Tracing Services with Zipkin](http://www.baeldung.com/tracing-services-with-zipkin)
