@@ -37,6 +37,7 @@
   <module>spring-cloud-ribbon-client</module>
   <module>spring-cloud-sleuth-introduction</module>
     <module>spring-cloud-gateway-pattern</module>
+    <module>spring-cloud-bus</module>
   </modules>
  <dependencyManagement>
   <dependencies>
