@@ -38,13 +38,14 @@
   <module>spring-cloud-sleuth-introduction</module>
     <module>spring-cloud-gateway-pattern</module>
     <module>spring-cloud-bus</module>
+    <module>spring-cloud-bus2</module>
   </modules>
  <dependencyManagement>
   <dependencies>
    <dependency>
     <groupId>org.springframework.cloud</groupId>
     <artifactId>spring-cloud-dependencies</artifactId>
-    <version>Finchley.M9</version>
+    <version>Finchley.RC1</version>
     <type>pom</type>
     <scope>import</scope>
    </dependency>
