@@ -4,3 +4,16 @@ spring:
     port: 5672
     username: guest
     password: guest
+  cloud:
+    config:
+      server:
+        git:
+          password: 123qweQWE
+          uri: http://192.168.10.135/root/spring-cloud-config-repo.git
+          username: root
+  security:
+    user:
+      password: s3cr3t
+      name: root
+server:
+  port: 8888
