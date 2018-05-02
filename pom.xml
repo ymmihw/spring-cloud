@@ -27,19 +27,6 @@
    <scope>test</scope>
   </dependency>
  </dependencies>
- <modules>
-  <module>spring-cloud-bootstrapping</module>
-  <module>spring-cloud-configuration</module>
-  <module>spring-cloud-security</module>
-  <module>spring-cloud-zipkin</module>
-  <module>spring-boot-1.5</module>
-  <module>spring-cloud-zookeeper</module>
-  <module>spring-cloud-ribbon-client</module>
-  <module>spring-cloud-sleuth-introduction</module>
-  <module>spring-cloud-gateway-pattern</module>
-  <module>spring-cloud-bus</module>
-  <module>spring-cloud-bus2</module>
- </modules>
  <dependencyManagement>
   <dependencies>
    <dependency>
