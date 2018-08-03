@@ -1,0 +1,8 @@
+FROM centos-java:base
+MAINTAINER baeldung.com
+RUN yum install -y nmap-ncat.x86_64
+COPY config-client.jar /opt/spring-cloud/lib/
+COPY config-client-entrypoint.sh /opt/spring-cloud/bin/
+ENV JAVA_HOME /usr/lib/jvm/jdk
+ENV PATH $PATH:$JAVA_HOME/bin
+RUN chmod 755 /opt/spring-cloud/bin/config-client-entrypoint.sh

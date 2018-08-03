@@ -1,0 +1,11 @@
+FROM centos-java:base
+MAINTAINER baeldung.com
+COPY config-server.jar /opt/spring-cloud/lib/
+ENV SPRING_APPLICATION_JSON='{"spring": {"cloud": {"config": {"server": \
+    {"git": {"uri": "/home/core/docker/config-repo", "clone-on-start": true}}}}}}'
+ENV JAVA_HOME /usr/lib/jvm/jdk
+ENV PATH $PATH:$JAVA_HOME/bin
+ENTRYPOINT ["/usr/lib/jvm/jdk/bin/java"]
+CMD ["-jar", "/opt/spring-cloud/lib/config-server.jar"]
+VOLUME /home/core/docker/config-repo
+EXPOSE 8888
