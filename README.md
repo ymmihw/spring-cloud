@@ -11,3 +11,4 @@ spring-cloud-configuration | [Dockerizing a Spring Boot Application](http://www.
 spring-cloud-bus | [Spring Cloud Bus](http://www.baeldung.com/spring-cloud-bus)
 spring-cloud-zookeeper | [An Intro to Spring Cloud Zookeeper](http://www.baeldung.com/spring-cloud-zookeeper)
 spring-cloud-sleuth-introduction | [Spring Cloud Sleuth in a Monolith Application](http://www.baeldung.com/spring-cloud-sleuth-single-application)
+spring-cloud-kubernetes | [Guide to Spring Cloud Kubernetes](https://www.baeldung.com/spring-cloud-kubernetes)
