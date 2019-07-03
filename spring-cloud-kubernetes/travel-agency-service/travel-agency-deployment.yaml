@@ -27,8 +27,7 @@ spec:
     spec:
       containers:
         - name: travel-agency-service
-          image: travel-agency-service:latest
-          imagePullPolicy: IfNotPresent
+          image: 172.16.10.177:5000/travel-agency-service:latest
           ports:
           - containerPort: 8080
           env:
@@ -42,3 +41,5 @@ spec:
                 secretKeyRef:
                   name: db-secret
                   key: password
+      imagePullSecrets:
+        - name: regcred

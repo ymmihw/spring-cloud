@@ -27,7 +27,8 @@ spec:
     spec:
       containers:
         - name: client-service
-          image: client-service:latest
-          imagePullPolicy: IfNotPresent
+          image: 172.16.10.177:5000/client-service:latest
           ports:
             - containerPort: 8080
+      imagePullSecrets:
+        - name: regcred
